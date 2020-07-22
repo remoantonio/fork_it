@@ -20,8 +20,8 @@ user.post('/new', (req, res) => {
                     if (err) {
                         res.status(400).json({ error: err.message })
                     } else {
-                        req.session.currentUser = user
-                        res.status(200).json(req.session.currentUser)
+                        // req.session.currentUser = user
+                        res.status(200).json({user})
                     }
                 })
             } else {

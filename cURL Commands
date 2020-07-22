@@ -1,0 +1,27 @@
+Get contents of database:
+curl 'http://localhost:3003/fork/' | json_pp
+
+	1. Expected response is the contents of the database.
+	
+Create a new user:
+curl -X POST -H "Content-Type: application/json" -d '{"userName":"NewUser", "password":"1234", "password2":"1234"}' http://localhost:3003/user/new | json_pp
+
+	1. Requires a new user in the username field within quotations.
+	2. Expected responses:
+		- User name is not available. /If in use.
+		- Passwords do not match. /If passwords don't match.
+		- New User info if successful.
+
+
+Add a recipe to a user:
+curl --location --request PUT 'http://localhost:3003/fork/5f176adcc46ec9c8b3cab88e' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "recipe0" : "stuff0",
+    "recipe1" : "stuff1",
+    "recipe2" : "stuff2"
+}' | json_pp
+
+	1. Requires the ID of a created user in the request URL
+	2. Add info within the data object in key-value pairs.
+	3. Expected response is the updated object with data in recipes section.
