@@ -1,4 +1,4 @@
-// Require Packages
+// Require Packages and Models
 const express = require('express')
 const fork = express.Router()
 const Fork = require('../models/forkModel.js')
@@ -29,12 +29,6 @@ fork.put('/:id', (req, res) => {
     })
 })
 
-// Create Recipe
-fork.post('/', (req, res) => {
-    Fork.create(req.body, (err, recipe) => {
-        if (err) {res.status(400).json({error: err.message})}
-        res.status(200).json({recipe})
-    })
-})
 
+// Export Router
 module.exports = fork
