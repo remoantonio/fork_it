@@ -11,7 +11,7 @@ require ('dotenv').config()
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 //////////////////////////NEEDS TO BE UPDATED FOR HOSTING!!!!!!!!!!!!!!!!!!!!!!!!
-mongoose.connect('mongodb://localhost:27017/fork', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/fork', { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...')
 })
@@ -30,13 +30,15 @@ const corsOptions = {
     }
 }
 const forkController = require('./controllers/forkController.js')
+const userController = require('./controllers/userController.js')
 
 // Usage
 app.use(express.json())
 // app.use(cors(corsOptions))
 app.use('/fork', forkController)
+app.use('/user', userController)
 app.use(session({
-    secret: process.env.SECRET, //some random string
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
@@ -52,11 +54,10 @@ function loginCheck(req, res, next) {
 // User Section Paths
 const userRoutes = ['/fork/saved-recipes', '/user/settings']
 
-app.use(userRoutes, loginCheck)
+// app.use(userRoutes, loginCheck)
 
 // Test Route
-app.get('/', (req, res) => {
-    res.send('Hello')
+app.get('/', (req, res) => {res.send('Hello')
 })
 
 // Listen
