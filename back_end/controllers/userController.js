@@ -28,7 +28,7 @@ user.post('/new', (req, res) => {
                 res.status(400).json({'message' : 'Passwords do not match.'})
             }
         } else {
-            res.status(403).json({ 'message' : 'User Name is not available.'})
+            res.status(400).json({ 'message' : 'User Name is not available.'})
         }
     })
 })
