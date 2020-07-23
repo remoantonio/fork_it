@@ -29,12 +29,16 @@ const corsOptions = {
         }
     }
 }
+
+app.use(cors(corsOptions))
+
 const forkController = require('./controllers/forkController.js')
+const userController = require('./controllers/userController.js')
 
 // Usage
 app.use(express.json())
-// app.use(cors(corsOptions))
-app.use('/fork', forkController)
+
+
 app.use(session({
     secret: process.env.SECRET, //some random string
     resave: false,
@@ -53,6 +57,10 @@ function loginCheck(req, res, next) {
 const userRoutes = ['/fork/saved-recipes', '/user/settings']
 
 app.use(userRoutes, loginCheck)
+
+app.use('/fork', forkController)
+
+app.use('/user', userController)
 
 // Test Route
 app.get('/', (req, res) => {
