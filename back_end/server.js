@@ -30,7 +30,7 @@ const corsOptions = {
     }
 }
 
-app.use(cors(corsOptions))
+
 
 const forkController = require('./controllers/forkController.js')
 const userController = require('./controllers/userController.js')
@@ -38,7 +38,7 @@ const userController = require('./controllers/userController.js')
 // Usage
 app.use(express.json())
 
-// app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 app.use('/fork', forkController)
 app.use('/user', userController)
 

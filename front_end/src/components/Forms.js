@@ -3,16 +3,15 @@ import React from 'react'
 class Forms extends React.Component {
 
     state = {
-        username: '',
+        userName: '',
         password: '',
-        recipes: []
+        password2: '',
     }
 
     handleChange = (event) => {
       this.setState({
-          username: event.target.value,
-          password: event.target.value,
-          recipes: event.target.value
+          [event.currentTarget.id]: event.currentTarget.value,
+         
       });
     }  
   
@@ -22,9 +21,9 @@ class Forms extends React.Component {
       fetch(this.props.baseUrl + '/user/new', {
           method: 'POST',
           body: JSON.stringify({
-            username: event.target.value,
-            password: event.target.value,
-            recipes: event.target.value 
+            userName: this.state.userName,
+            password: this.state.password,
+            password2: this.state.password,
           }),
           headers: {
               'Content-Type': 'application/json',
@@ -34,9 +33,9 @@ class Forms extends React.Component {
       }).then(data => {
           this.props.addRecipes(data);
           this.setState({
-            username: '',
+            userName: '',
             password: '',
-            recipes: [] 
+            password2: '',
           });
       });
   }
@@ -45,10 +44,10 @@ class Forms extends React.Component {
       return (
 
       <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-                <label htmlFor="username">Username: </label>
-                <input type="text" id="username"
+                <label htmlFor="userName">Username: </label>
+                <input type="text" id="userName"
                     onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.username }/>
+                    value={ this.state.userName }/>
                     <br/>
 
                     <label htmlFor="password">Password: </label>
@@ -57,11 +56,13 @@ class Forms extends React.Component {
                     value={ this.state.password }/>
                     <br/>
 
-                    <label htmlFor="recipes">Recipes</label>
-                    <input type="text" id="recipes"
+
+                    <label htmlFor="password2">Re-enter Password: </label>
+                    <input type="text" id="password2"
                     onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.recipes }/>
+                    value={ this.state.password2 }/>
                     <br/>
+
 
     
                 <input type="submit" value="SUBMIT"/>

@@ -8,27 +8,28 @@ class App extends React.Component {
   state = {
         username: '',
         password: '',
-        recipes: []
+        password2: '',
   }
 
   getRecipes = () => {
-    fetch(baseURL + '/user/new').then(res => {
+    fetch(baseURL + '/fork').then(res => {
       return res.json();
     }).then(data => {
       this.setState({
-        username: data,
-        password: data,
-        recipes: data
+        userName: data.userName,
+        password: data.password,
+        password2: data.password2,
       });
     });
   }
 
   addRecipes = (newRecipes) => {
-    const copyRecipes = [...this.state.recipes];
-    copyRecipes.push(newRecipes);
-    this.setState({
-      recipes: copyRecipes,
-    });
+    // const copyRecipes = [...this.state.recipes];
+    // copyRecipes.push(newRecipes);
+    // this.setState({
+    //   recipes: copyRecipes,
+
+    //});
   }
 
   componentDidMount() {
@@ -42,7 +43,7 @@ class App extends React.Component {
         <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/>
         <table>
           <tbody>
-            {
+            {/* {
               this.state.recipes.map(recipes => {
                 return (
                   <tr key={ recipes._id }>
@@ -50,7 +51,7 @@ class App extends React.Component {
                   </tr>
                 )
               })
-            }
+            } */}
           </tbody>
         </table>
       </div>
