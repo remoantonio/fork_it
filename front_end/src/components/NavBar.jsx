@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function NavBar() {
     return (
         
-        <Navbar>
+        <Navbar bg="light" expand="lg">
             <Link to='/'>Home</Link>
             <Link to='/saved'>Saved Recipes</Link>
             <Link to='/search'>Search Recipes</Link>

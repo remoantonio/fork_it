@@ -30,7 +30,8 @@ export default class App extends Component {
   
   render() {
     return (
-    <div>
+    
+        <Container>
          <NavBar />
          <Switch>
           <Route exact path='/search' component={SearchRecipes} />
@@ -41,8 +42,8 @@ export default class App extends Component {
 
         <Button onclick="myFunction()">Toggle dark mode</Button>
       
-        </div>
-      
+        
+        </Container>
     )
   }
 }
