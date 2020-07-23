@@ -23,7 +23,7 @@ fork.delete('/:id', (req, res) => {
 
 // Edit Recipe
 fork.put('/:id', (req, res) => {
-    Fork.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, recipes) => {
+    Fork.findByIdAndUpdate(req.params.id, {recipes :req.body}, {new: true}, (err, recipes) => {
         if (err) {res.status(400).json({error: err.message})}
         res.status(200).json({recipes})
     })
