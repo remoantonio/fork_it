@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react'
+import {Switch, Route} from 'react-router-dom'
+import {Container, Button} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from './components/NavBar'
+import SearchRecipes from './components/SearchRecipes'
+import SavedRecipes from './components/SavedRecipes'
 import Forms from './components/Forms'
+
 
 
 let baseURL = 'http://localhost:3003'
@@ -38,7 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <h1>Create Account</h1>
         <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/>
         <table>
@@ -54,7 +61,7 @@ class App extends React.Component {
             } */}
           </tbody>
         </table>
-      </div>
+      </Container>
     )
   }
 }
