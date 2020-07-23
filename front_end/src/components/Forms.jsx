@@ -14,7 +14,6 @@ class Forms extends React.Component {
   handleChange = (event) => {
     this.setState({
       [event.currentTarget.id]: event.currentTarget.value,
-
     });
   }
 

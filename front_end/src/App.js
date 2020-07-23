@@ -39,9 +39,9 @@ class App extends React.Component {
     //});
   }
 
-  componentDidMount() {
-    this.getRecipes();
-  }
+  // componentDidMount() {
+  //   this.getRecipes();
+  // }
 
   render() {
     return (
