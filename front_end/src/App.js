@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import {Container, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar'
+import Home from './components/Home'
 import SearchRecipes from './components/SearchRecipes'
 import SavedRecipes from './components/SavedRecipes'
 import Forms from './components/Forms'
@@ -45,12 +46,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container>
-        <h1>Create Account</h1>
+      <Container fluid>
+      <NavBar /> 
+      <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/saved' component={SavedRecipes} />
+          <Route exact path='/search' component={SearchRecipes} />
+          <Route component={Error} />
+        </Switch>
+      
+      
+        <h1>Login/Sign Up</h1>
         <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/>
-        <table>
+        {/* <table>
           <tbody>
-            {/* {
+            {
               this.state.recipes.map(recipes => {
                 return (
                   <tr key={ recipes._id }>
@@ -58,9 +68,9 @@ class App extends React.Component {
                   </tr>
                 )
               })
-            } */}
+            }
           </tbody>
-        </table>
+        </table> */}
       </Container>
     )
   }
