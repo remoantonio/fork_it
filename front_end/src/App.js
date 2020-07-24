@@ -56,8 +56,8 @@ class App extends React.Component {
         </Switch>
       
       
-        <h1>Login/Sign Up</h1>
-        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/>
+        {/* <h1>Login/Sign Up</h1>
+        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/> */}
         {/* <table>
           <tbody>
             {
