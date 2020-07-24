@@ -6,10 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export default function Home() {
     return (
 <Container fluid>
-      
-
-        
-            Fork it!
+   <h3> Welcome to Fork It! More test text will go here</h3>
     
 </Container>
     )

@@ -80,7 +80,7 @@ class Forms extends React.Component {
 
 
 
-        <Button variant="warning" type="submit">
+        <Button variant="warning" type="submit" onClick={this.handleSubmit}>
     Submit
   </Button>
       </Form.Group>

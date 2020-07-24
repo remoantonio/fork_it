@@ -6,8 +6,8 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import SearchRecipes from './components/SearchRecipes'
 import SavedRecipes from './components/SavedRecipes'
-import Forms from './components/Forms'
-
+import Forms from './components/Forms.jsx'
+import Recipes from './components/Recipes.jsx'
 
 
 let baseURL = 'http://localhost:3003'
@@ -56,8 +56,8 @@ class App extends React.Component {
         </Switch>
       
       
-        <h1>Login/Sign Up</h1>
-        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/>
+        {/* <h1>Login/Sign Up</h1>
+        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/> */}
         {/* <table>
           <tbody>
             {
