@@ -41,7 +41,9 @@ class Recipes extends Component {
       }),
       err => console.log(err))
   })
-  }
+
+  
+ }
 
 
   render () {
