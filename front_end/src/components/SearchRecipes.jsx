@@ -6,41 +6,42 @@ import Recipes from './Recipes'
 
 export default class SearchRecipes {
   state = {
-    searched: false
+    searched: false,
+    data: ""
   }
-  toggleSearch = this.toggleSearch.bing(this)
+  toggleSearch = this.toggleSearch.bind(this)
 
   toggleSearch () {
-    let toggle = !searched
+    let toggle = !this.state.searched
     this.state({
       searched : toggle
     })
   }
 
   render() {
-    return
-    <Container>
-      <Recipes toggleSearch = {this.toggleSearch}/>
-      {searched ? (
-        <Card className="h-100 shadow-sm bg-white rounded">
-          <Card.Img variant="top" src={data.image} />
-          <Card.Body className="d-flex flex-column">
-            <div className="d-flex mb-2 justify-content-between">
-              <Card.Title className="mb-0 font-weight-bold">{data.label}</Card.Title>
-            </div>
-            <Card.Text className="text-secondary">{data.yield}</Card.Text>
-            <Button
-              onClick={() => setOrdered()}
-              className="mt-auto font-weight-bold"
-              variant="success"
-              block
-            >
-              Show More
+    return (
+      <Container>
+        <Recipes toggleSearch={this.toggleSearch} />
+        {this.state.searched ? (
+          <Card className="h-100 shadow-sm bg-white rounded">
+            <Card.Img variant="top" src={this.state.data.image} />
+            <Card.Body className="d-flex flex-column">
+              <div className="d-flex mb-2 justify-content-between">
+                <Card.Title className="mb-0 font-weight-bold">{this.state.data.label}</Card.Title>
+              </div>
+              <Card.Text className="text-secondary">{this.state.data.yield}</Card.Text>
+              <Button
+                // onClick={() => setOrdered()}
+                className="mt-auto font-weight-bold"
+                variant="success"
+                block
+              >
+                Show More
           </Button>
-          </Card.Body>
-        </Card>) : (<></>)
-      }
-    </Container>
-
+            </Card.Body>
+          </Card>) : (<></>)
+        }
+      </Container>
+    )
   }
 }

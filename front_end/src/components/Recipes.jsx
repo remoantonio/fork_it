@@ -25,25 +25,25 @@ class Recipes extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange (event) {
+  handleChange(event) {
     this.setState({ [event.target.id]: event.target.value })
   }
-  handleSubmit (event) {
+  handleSubmit(event) {
     event.preventDefault()
     this.setState({
-      searchURL: this.state.baseURL + this.state.recipeName}, () => {
-        fetch(this.state.searchURL)
-      .then(response => {
-        return response.json()
-      }).then(json => this.setState({
-        recipe: json,
-        recipeTitle: ''
-      }),
-      err => console.log(err))
-  })
-
-  
- }
+      searchURL: this.state.baseURL + this.state.recipeName
+    }, () => {
+      fetch(this.state.searchURL)
+        .then(response => {
+          return response.json()
+        }).then(json => this.setState({
+          recipe: json,
+          recipeTitle: ''
+        }),
+          err => console.log(err))
+    })
+    this.props.toggleSearch()
+  }
 
 
   render () {
