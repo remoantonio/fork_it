@@ -5,27 +5,41 @@ const Fork = require('../models/forkModel.js')
 
 // Routes
 
-// Index Recipe
+// Backend Routes
+// Show Single User Data
+fork.get('/:id', (req, res) => {
+    Fork.findById(req.params.id, (err, recipes) => {
+        if (err)(res.status(400).json({ error: err.message }))
+        res.status(200).json({recipes})
+    })
+})
+
+// Show ALL Data
 fork.get('/', (req, res) => {
-    Fork.find({}, (err, results) => {
-        if (err) {res.status(400).json({error: err.message})}
-        res.status(200).json({results})
+    Fork.find({}, (err, recipes) => {
+        if (err)(res.status(400).json({ error: err.message }))
+        res.status(200).json({recipes})
     })
 })
 
+// Working Routes
 // Delete Recipe
-fork.delete('/:id', (req, res) => {
-    Fork.findByIdAndRemove(req.params.id, (err, recipes) => {
-        if (err) {res.status(400).json({error: err.message})}
-        res.status(200).json({recipes})
+fork.delete('/delete', (req, res) => {
+    Fork.findOne({userName: req.body.userName}, (err, recipes) => {
+        if ( err) (res.status(400).json({ error: err.message }))
+        delete recipes.recipes[req.body.delete]
+        Fork.findOneAndUpdate({ userName: req.body.userName }, {$set : {recipes: recipes.recipes}}, { new: true }, (err, recipes) => {
+            if (err) { res.status(400).json({ error: err.message }) }
+            res.status(200).json(recipes.recipes)
+        })    
     })
 })
 
-// Edit Recipe
-fork.put('/:id', (req, res) => {
-    Fork.findByIdAndUpdate(req.params.id, {recipes :req.body}, {new: true}, (err, recipes) => {
-        if (err) {res.status(400).json({error: err.message})}
-        res.status(200).json({recipes})
+// Add Recipe
+fork.put('/add', (req, res) => {
+    Fork.findOneAndUpdate({ userName: req.body.userName }, { recipes: req.body.recipes }, { new: true }, (err, recipes) => {
+        if (err) { res.status(400).json({ error: err.message }) }
+        res.status(200).json(recipes.recipes)
     })
 })
 
