@@ -1,5 +1,6 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
+import {Form, Button, Container} from 'react-bootstrap'
 
 class Forms extends React.Component {
 
@@ -55,22 +56,23 @@ class Forms extends React.Component {
       return <Redirect to="/" />
     }
     return (
-      <form onSubmit={(evt) => this.handleSubmit(evt)}>
-        <label htmlFor="userName">Username: </label>
-        <input type="text" id="userName"
+      <Container>
+      <Form.Group onSubmit={(evt) => this.handleSubmit(evt)}>
+        <Form.Label htmlFor="userName">Username: </Form.Label>
+        <Form.Control type="text" id="userName"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.userName} />
         <br />
 
-        <label htmlFor="password">Password: </label>
-        <input type="text" id="password"
+        <Form.Label htmlFor="password">Password: </Form.Label>
+        <Form.Control type="password" id="password"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.password} />
         <br />
 
 
-        <label htmlFor="password2">Re-enter Password: </label>
-        <input type="text" id="password2"
+        <Form.Label htmlFor="password2">Re-enter Password: </Form.Label>
+        <Form.Control type="password" id="password2"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.password2} />
         <br />
@@ -79,8 +81,11 @@ class Forms extends React.Component {
 
 
 
-        <input type="submit" value="SUBMIT" />
-      </form>
+        <Button variant="warning" type="submit">
+    Submit
+  </Button>
+      </Form.Group>
+      </Container>
 
     )
 

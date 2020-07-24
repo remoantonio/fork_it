@@ -1,15 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {Navbar} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function NavBar() {
     return (
         
-        <Navbar bg="light" expand="lg">
-            <Link to='/'>Home</Link>
-            <Link to='/saved'>Saved Recipes</Link>
-            <Link to='/search'>Search Recipes</Link>
+        <Navbar bg="dark" expand="lg" variant="dark">
+            <Nav className="justify-content-center">
+                <Nav.Link to='/'>Home</Nav.Link>
+                <Nav.Link href='/saved'>Saved Recipes</Nav.Link>
+                <Nav.Link to='/search'>Search Recipes</Nav.Link>
+            </Nav>
         </Navbar>
     )
 }
