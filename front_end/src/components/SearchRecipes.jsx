@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Recipes from './Recipes'
 
 
-export default class SearchRecipes {
+export default class SearchRecipes extends Component {
   state = {
     searched: false,
     data: ""
@@ -13,16 +13,16 @@ export default class SearchRecipes {
 
   toggleSearch () {
     let toggle = !this.state.searched
-    this.state({
+    this.setState({
       searched : toggle
     })
   }
 
   render() {
     return (
-      <Container>
-        <Recipes toggleSearch={this.toggleSearch} />
-        {this.state.searched ? (
+      <>
+        <Recipes toggleSearch={this.toggleSearch} data={this.state.data} searched={this.state.searched} />
+        {/* {this.state.searched ? (
           <Card className="h-100 shadow-sm bg-white rounded">
             <Card.Img variant="top" src={this.state.data.image} />
             <Card.Body className="d-flex flex-column">
@@ -40,8 +40,8 @@ export default class SearchRecipes {
           </Button>
             </Card.Body>
           </Card>) : (<></>)
-        }
-      </Container>
+        } */}
+      </>
     )
   }
 }

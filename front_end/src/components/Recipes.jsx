@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RecipeInfo from './RecipeInfo'
+import {Card, Button, Container} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Recipes extends Component {
     constructor (props) {
@@ -20,7 +22,6 @@ class Recipes extends Component {
 
     //https://api.edamam.com/api/food-database/v2/parser?nutrition-type=logging&ingr=Apple&app_id=f7666d99&api_key=2109bcebbc7b27e68c00ec6699cee81d
 
-
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
@@ -37,19 +38,21 @@ class Recipes extends Component {
         .then(response => {
           return response.json()
         }).then(json => this.setState({
-          recipe: json,
+          recipe: json.hits,
+          // recipe: json,
           recipeTitle: ''
         }),
           err => console.log(err))
     })
-    this.props.toggleSearch()
+    { this.props.toggleSearch() 
+    }
   }
 
 
-  render () {
+  render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <label htmlFor='recipeName'>Recipe</label>
           <input
             id='recipeName'
@@ -57,19 +60,31 @@ class Recipes extends Component {
             value={this.state.recipeName}
             onChange={this.handleChange}
           />
-          <input
-            type='submit'
-            value='Find Recipe'
-          />
+          <input type='submit' value='Find Recipe' onClick={(event) => this.handleSubmit(event)} />
         </form>
-       
-        {/* <a href={this.state.searchURL}>{this.state.searchURL}</a> */}
-       
+
         {(this.state.recipe)
-            ? <RecipeInfo recipe={this.state.recipe} />
-            : ''
-          }
-      
+          ? <RecipeInfo recipe={this.state.recipe} />
+          : ''
+        }
+
+        {/* <Card className="h-100 shadow-sm bg-white rounded">
+          <Card.Img variant="top" src={this.state.recipe.hits[0].image} />
+          <Card.Body className="d-flex flex-column">
+            <div className="d-flex mb-2 justify-content-between">
+              <Card.Title className="mb-0 font-weight-bold">{this.state.data.label}</Card.Title>
+            </div>
+            <Card.Text className="text-secondary">{this.state.data.yield}</Card.Text>
+            <Button
+              // onClick={() => setOrdered()}
+              className="mt-auto font-weight-bold"
+              variant="success"
+              block
+            >
+              Show More
+          </Button>
+          </Card.Body>
+        </Card> */}
       </>
     )
   }
