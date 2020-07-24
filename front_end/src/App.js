@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar'
 import SearchRecipes from './components/SearchRecipes'
 import SavedRecipes from './components/SavedRecipes'
-import Forms from './components/Forms'
-
+import Forms from './components/Forms.jsx'
+import Recipes from './components/Recipes.jsx'
 
 
 let baseURL = 'http://localhost:3003'
@@ -48,17 +48,10 @@ class App extends React.Component {
       <Container>
         <h1>Create Account</h1>
         <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/>
+        <Recipes />
         <table>
           <tbody>
-            {/* {
-              this.state.recipes.map(recipes => {
-                return (
-                  <tr key={ recipes._id }>
-                    <td>{ recipes.name }</td>
-                  </tr>
-                )
-              })
-            } */}
+            
           </tbody>
         </table>
       </Container>
