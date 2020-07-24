@@ -29,24 +29,20 @@ const corsOptions = {
         }
     }
 }
-
-
-
 const forkController = require('./controllers/forkController.js')
 const userController = require('./controllers/userController.js')
 
 // Usage
 app.use(express.json())
-
 app.use(cors(corsOptions))
-app.use('/fork', forkController)
-app.use('/user', userController)
-
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
+app.use('/fork', forkController)
+app.use('/user', userController)
+
 // login authentication function and middleware
 function loginCheck(req, res, next) {
     if (!req.session.currentUser) {
@@ -58,12 +54,7 @@ function loginCheck(req, res, next) {
 }
 // User Section Paths
 const userRoutes = ['/fork/saved-recipes', '/user/settings']
-
-// app.use(userRoutes, loginCheck)
-
-app.use('/fork', forkController)
-
-app.use('/user', userController)
+app.use(userRoutes, loginCheck)
 
 // Test Route
 app.get('/', (req, res) => {res.send('Hello')

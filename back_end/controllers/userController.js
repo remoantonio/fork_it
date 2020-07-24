@@ -20,7 +20,7 @@ user.post('/new', (req, res) => {
                     if (err) {
                         res.status(400).json({ error: err.message })
                     } else {
-                        // req.session.currentUser = user
+                        req.session.currentUser = user
                         res.status(200).json({user})
                     }
                 })
@@ -32,6 +32,10 @@ user.post('/new', (req, res) => {
         }
     })
 })
+
+
+// Update User Route
+
 // user.post('/new', (req, res) => {
 //     Fork.create(req.body, (err, user) => {
 //         if (err) {res.status(400).json({error: err.message})}
