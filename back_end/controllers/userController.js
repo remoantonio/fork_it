@@ -8,6 +8,15 @@ const Fork = require('../models/forkModel.js')
 
 // Routes
 
+// Get Current Username
+user.get('/', (req, res) => {
+    if(req.session.currentUser) {
+        res.status(200).json(req.session.currentUser)
+    } else {
+        res.status(200).json('')
+    }
+})
+
 // Logout User
 user.delete('/logout', (req, res) => {
     req.session.destroy();

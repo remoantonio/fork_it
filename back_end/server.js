@@ -46,14 +46,14 @@ app.use('/user', userController)
 // login authentication function and middleware
 function loginCheck(req, res, next) {
     if (!req.session.currentUser) {
-        res.redirect('/fork/')
+        // res.redirect('/fork/')
     } else {
         currentUser = req.session.currentUser
         next()
     }
 }
 // User Section Paths
-const userRoutes = ['/fork/saved-recipes', '/user/settings']
+const userRoutes = ['/']
 app.use(userRoutes, loginCheck)
 
 // Test Route

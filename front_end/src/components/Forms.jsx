@@ -39,7 +39,7 @@ class Forms extends React.Component {
           message: data.message
         })
       } else {
-        this.props.addRecipes(data);
+        this.props.setUser(data);
         this.setState({
           userName: '',
           password: '',

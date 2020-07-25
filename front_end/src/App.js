@@ -14,10 +14,9 @@ let baseURL = 'http://localhost:3003'
 
 class App extends React.Component {
   state = {
-        username: '',
-        password: '',
-        password2: '',
+    userName: ''
   }
+  setUser = this.setUser.bind(this)
 
   getRecipes = () => {
     fetch(baseURL + '/fork').then(res => {
@@ -31,6 +30,12 @@ class App extends React.Component {
     });
   }
 
+  setUser(data) {
+    this.setState({
+      userName : data
+    })
+  }
+
   addRecipes = (newRecipes) => {
     // const copyRecipes = [...this.state.recipes];
     // copyRecipes.push(newRecipes);
@@ -40,9 +45,16 @@ class App extends React.Component {
     //});
   }
 
-  // componentDidMount() {
-  //   this.getRecipes();
-  // }
+  componentDidMount() {
+    fetch("http://localhost:3003/user").then(res => {
+      return res.json();
+    }).then(data => {
+      console.log(data)
+      this.setState({
+        userName: data
+      })
+    });
+  }
 
   render() {
     return (
@@ -56,8 +68,8 @@ class App extends React.Component {
         </Switch>
       
       
-        {/* <h1>Login/Sign Up</h1>
-        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/> */}
+        <h1>Login/Sign Up</h1>
+        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes } setUser = {this.setUser}/>
         {/* <table>
           <tbody>
             {
