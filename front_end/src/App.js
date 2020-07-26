@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import {Switch, Route} from 'react-router-dom'
 import {Container, Button} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.scss'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import SearchRecipes from './components/SearchRecipes'
 import SavedRecipes from './components/SavedRecipes'
 import Forms from './components/Forms.jsx'
 import Recipes from './components/Recipes.jsx'
+import Login from './components/Login'
 
 
 let baseURL = 'http://localhost:3003'
@@ -64,12 +66,12 @@ class App extends React.Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/saved' component={SavedRecipes} />
           <Route exact path='/search' component={SearchRecipes} />
+          <Route exact path='/login' component={Login} />
           <Route component={Error} />
         </Switch>
       
       
-        <h1>Login/Sign Up</h1>
-        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes } setUser = {this.setUser}/>
+       
         {/* <table>
           <tbody>
             {

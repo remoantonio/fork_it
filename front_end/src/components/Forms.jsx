@@ -21,7 +21,7 @@ class Forms extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    fetch(this.props.baseUrl + '/user/new', {
+    fetch('http://localhost:3003/user/new', {
       method: 'POST',
       body: JSON.stringify({
         userName: this.state.userName,
@@ -39,7 +39,7 @@ class Forms extends React.Component {
           message: data.message
         })
       } else {
-        this.props.setUser(data);
+        // this.props.setUser(data);
         this.setState({
           userName: '',
           password: '',

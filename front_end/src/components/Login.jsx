@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
-import Forms from 'components/Forms'
+import Forms from './Forms.jsx'
 
 
 export default function Login() {
     
         return (
-        <Container>
-            <h1>Login</h1>
-        <Forms baseUrl={ baseURL } addRecipes={ this.addRecipes }/>  
+        <Container fluid>
+            <h1>Login/Sign Up</h1>
+        <Forms />
         </Container>
         )
    

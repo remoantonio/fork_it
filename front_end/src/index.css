@@ -13,11 +13,11 @@ code {
 }
 body {
   padding: 25px;
-  background-image: url("./assets/Fork5.jpg");
+  /* background-image: url("./assets/Fork5.jpg");
   height: 100%;
   background-position: center;
   background-repeat: repeat-x;
-  background-size: cover;
+  background-size: cover; */
   color: black;
   font-size: 25px;
 }
