@@ -20,7 +20,7 @@ export default class SearchRecipes extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <>
         <Recipes toggleSearch={this.toggleSearch} data={this.state.data} searched={this.state.searched} />
         {/* {this.state.searched ? (
           <Card className="h-100 shadow-sm bg-white rounded">
@@ -41,7 +41,7 @@ export default class SearchRecipes extends Component {
             </Card.Body>
           </Card>) : (<></>)
         } */}
-      </Container>
+      </>
     )
   }
 }

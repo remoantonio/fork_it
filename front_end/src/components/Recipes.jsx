@@ -51,16 +51,17 @@ class Recipes extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <>
         <Form>
           <Form.Label htmlFor='recipeName'>Recipe</Form.Label>
           <Form.Control
             id='recipeName'
+            placeholder='recipe name or ingredient'
             type='text'
             value={this.state.recipeName}
             onChange={this.handleChange}
           />
-          <Button type='submit' onClick={(event) => this.handleSubmit(event)}>
+          <Button  type='submit' onClick={(event) => this.handleSubmit(event)}>
             Find Recipe</Button>
         </Form>
 
@@ -86,7 +87,7 @@ class Recipes extends Component {
           </Button>
           </Card.Body>
         </Card> */}
-      </Container>
+      </>
     )
   }
 }

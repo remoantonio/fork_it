@@ -55,7 +55,7 @@ class Forms extends React.Component {
       return <Redirect to="/" />
     }
     return (
-      <Container>
+      <>
       <Form.Group onSubmit={(evt) => this.handleSubmit(evt)}>
         <Form.Label htmlFor="userName">Username: </Form.Label>
         <Form.Control type="text" id="userName"
@@ -84,7 +84,7 @@ class Forms extends React.Component {
     Submit
   </Button>
       </Form.Group>
-      </Container>
+      </>
 
     )
 
