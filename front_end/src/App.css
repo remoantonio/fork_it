@@ -1,14 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,14 +24,5 @@ body {
 
 .card .text-secondary {
   line-height: 25px;
-}
-
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 /*# sourceMappingURL=App.css.map */

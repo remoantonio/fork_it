@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecipeInfo from './RecipeInfo'
-import {Card, Button, Container} from 'react-bootstrap'
+import {Card, Button, Container, Form} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Recipes extends Component {
@@ -51,17 +51,18 @@ class Recipes extends Component {
 
   render() {
     return (
-      <>
-        <form>
-          <label htmlFor='recipeName'>Recipe</label>
-          <input
+      <Container fluid>
+        <Form>
+          <Form.Label htmlFor='recipeName'>Recipe</Form.Label>
+          <Form.Control
             id='recipeName'
             type='text'
             value={this.state.recipeName}
             onChange={this.handleChange}
           />
-          <input type='submit' value='Find Recipe' onClick={(event) => this.handleSubmit(event)} />
-        </form>
+          <Button type='submit' onClick={(event) => this.handleSubmit(event)}>
+            Find Recipe</Button>
+        </Form>
 
         {(this.state.recipe)
           ? <RecipeInfo recipe={this.state.recipe} />
@@ -85,7 +86,7 @@ class Recipes extends Component {
           </Button>
           </Card.Body>
         </Card> */}
-      </>
+      </Container>
     )
   }
 }
