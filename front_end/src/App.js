@@ -61,17 +61,21 @@ class App extends React.Component {
   render() {
     return (
       <Container fluid>
-      <NavBar /> 
-      <Switch>
+        <NavBar />
+        <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/saved' component={SavedRecipes} />
           <Route exact path='/search' component={SearchRecipes} />
-          <Route exact path='/login' component={Login} />
+          <Route
+            exact path='/login'
+            render={(props) => (
+              <Login {...props} setUser={this.setUser} />
+            )} />
           <Route component={Error} />
         </Switch>
-      
-      
-       
+
+
+
         {/* <table>
           <tbody>
             {
