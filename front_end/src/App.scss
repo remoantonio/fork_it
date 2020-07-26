@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
-html {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    -webkit-box-sizing: inherit;
-            box-sizing: inherit;
-  }
+// html {
+//     -webkit-box-sizing: border-box;
+//             box-sizing: border-box;
+//   }
+//   *, *:before, *:after {
+//     -webkit-box-sizing: inherit;
+//             box-sizing: inherit;
+//   }
   
   body {
     display: flex; 
@@ -37,8 +37,4 @@ html {
     line-height: 25px;
   }
  
-  .container {
-      display: flex; 
-      justify-content: center; 
-
-  }
+  
