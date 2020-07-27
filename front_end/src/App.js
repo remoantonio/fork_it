@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Switch, Route} from 'react-router-dom'
-import {Container, Button} from 'react-bootstrap'
+import {Container, Button, Row, Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss'
 import NavBar from './components/NavBar'
@@ -10,6 +10,7 @@ import SavedRecipes from './components/SavedRecipes'
 import Forms from './components/Forms.jsx'
 import Recipes from './components/Recipes.jsx'
 import Login from './components/Login'
+import RecipeInfo from './components/RecipeInfo'
 
 
 let baseURL = 'http://localhost:3003'
@@ -37,7 +38,7 @@ class App extends React.Component {
       userName : data
     })
   }
-
+ 
   addRecipes = (newRecipes) => {
     // const copyRecipes = [...this.state.recipes];
     // copyRecipes.push(newRecipes);
@@ -74,7 +75,7 @@ class App extends React.Component {
           <Route component={Error} />
         </Switch>
 
-
+       
 
         {/* <table>
           <tbody>

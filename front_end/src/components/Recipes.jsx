@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecipeInfo from './RecipeInfo'
-import {Card, Button, Container, Form} from 'react-bootstrap'
+import {Card, Button, Container, Form, Col, Row} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Recipes extends Component {
@@ -8,9 +8,7 @@ class Recipes extends Component {
     super(props)
     this.state = {
       baseURL: 'https://api.edamam.com/search?app_id=c180e9f7&app_key=15b9007e988ab8d62a093bbfa45635bb&q=',
-    //   api_id: 'app_id=c180e9f7',
-    //   api_key: 'api_key=' + '15b9007e988ab8d62a093bbfa45635bb' +'&q=',
-    //   query: '&',
+      // recipe: '',
       recipeName: '',
       searchURL: ''
     }
@@ -65,10 +63,18 @@ class Recipes extends Component {
             Find Recipe</Button>
         </Form>
 
-        {(this.state.recipe)
-          ? <RecipeInfo recipe={this.state.recipe} />
-          : ''
-        }
+        
+          {this.state.recipe ? (
+          <Row>
+            {this.state.recipe.map((recipe, index) => {
+          return (
+           <Col xs={3} className="mb-5">
+            <RecipeInfo recipe={recipe.recipe} id={index} />
+            </Col>
+          )})} 
+          </Row>):(<></>)} 
+
+    
 
         {/* <Card className="h-100 shadow-sm bg-white rounded">
           <Card.Img variant="top" src={this.state.recipe.hits[0].image} />
