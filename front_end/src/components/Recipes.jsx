@@ -50,7 +50,7 @@ class Recipes extends Component {
   render() {
     return (
       <>
-        <Form>
+        <Form className='w-50 p-3'>
           <Form.Label htmlFor='recipeName'>Recipe</Form.Label>
           <Form.Control
             id='recipeName'
@@ -59,7 +59,7 @@ class Recipes extends Component {
             value={this.state.recipeName}
             onChange={this.handleChange}
           />
-          <Button  type='submit' onClick={(event) => this.handleSubmit(event)}>
+          <Button  variant='warning' type='submit' onClick={(event) => this.handleSubmit(event)}>
             Find Recipe</Button>
         </Form>
 
