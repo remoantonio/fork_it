@@ -1,23 +1,41 @@
-import React, { Component } from 'react'
-import RecipeInfo from './RecipeInfo.jsx'
+import React, { Component, useState } from 'react'
 
-export default class Show extends Component {
-    constructor (props) {
-    super(props)
-    this.state = {
-      baseURL: 'https://api.edamam.com/search?app_id=c180e9f7&app_key=15b9007e988ab8d62a093bbfa45635bb&q=',
-      recipe: '',
-      
-    }
-        
-} 
-    
-    render () {
+import {Button, Modal, } from 'react-bootstrap'
+
+export default function Example() {
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
     return (
-            <div>
-                <RecipeInfo />
-               <p> {this.props.recipe.id.ingredients}</p>
-            </div>
-        )
-    }
-}
+      <>
+        <Button variant="primary" onClick={handleShow}>
+          Launch static backdrop modal
+        </Button>
+  
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Modal title</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            I will not close if you click outside me. Don't even try to press
+            escape key.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary">Understood</Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
+  
+//   render(<Example />);
