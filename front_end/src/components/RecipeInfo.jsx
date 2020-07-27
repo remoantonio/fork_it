@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 class RecipeInfo extends Component {
+
+  
   render() {
       return(
       //  <Row>
@@ -25,8 +27,9 @@ class RecipeInfo extends Component {
             <Card.Text className="text-secondary">Calories :{Math.floor(this.props.recipe.calories)}</Card.Text>
             <Button
               href='/show'
+
               className="mt-auto font-weight-bold"
-              variant="success"
+              variant="warning"
               block
             >
               Show More
