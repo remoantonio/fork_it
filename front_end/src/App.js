@@ -11,6 +11,7 @@ import Forms from './components/Forms.jsx'
 import Recipes from './components/Recipes.jsx'
 import Login from './components/Login'
 import RecipeInfo from './components/RecipeInfo'
+import Show from './components/Show'
 
 
 let baseURL = 'http://localhost:3003'
@@ -72,6 +73,7 @@ class App extends React.Component {
             render={(props) => (
               <Login {...props} setUser={this.setUser} />
             )} />
+          <Route exact path='/show' component={Show} />
           <Route component={Error} />
         </Switch>
 
