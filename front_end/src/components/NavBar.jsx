@@ -10,12 +10,10 @@ export default function NavBar() {
             <Nav className="mr-auto">
                 <Nav.Link href='/'>Home</Nav.Link>
                 <Nav.Link href='/saved'>Saved Recipes</Nav.Link>
+                <Nav.Link href='/search'>Search Recipes</Nav.Link>
                 <Button href='/login' variant='outline-light'>Login</Button>
             </Nav>
-        <Form inline>
-        <FormControl type="text" placeholder="Search Recipes" className="mr-sm-2" />
-            <Button variant="outline-light">Search</Button>
-        </Form>
+    
         </Navbar>
     )
 }

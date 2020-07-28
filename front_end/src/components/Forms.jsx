@@ -57,20 +57,20 @@ class Forms extends React.Component {
     return (
       <>
       <Form.Group onSubmit={(evt) => this.handleSubmit(evt)}>
-        <Form.Label htmlFor="userName">Username: </Form.Label>
+        <Form.Label className='h4' htmlFor="userName">Username: </Form.Label>
         <Form.Control type="text" id="userName"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.userName} />
         <br />
 
-        <Form.Label htmlFor="password">Password: </Form.Label>
+        <Form.Label className='h4' htmlFor="password">Password: </Form.Label>
         <Form.Control type="password" id="password"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.password} />
         <br />
 
 
-        <Form.Label htmlFor="password2">Re-enter Password: </Form.Label>
+        <Form.Label className='h4' htmlFor="password2">Re-enter Password: </Form.Label>
         <Form.Control type="password" id="password2"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.password2} />

@@ -62,7 +62,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container fluid >
         <NavBar />
         <Switch>
           <Route exact path='/' component={Home} />
