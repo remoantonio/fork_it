@@ -10,12 +10,9 @@ export default function NavBar() {
             <Nav className="mr-auto">
                 <Nav.Link href='/'>Home</Nav.Link>
                 <Nav.Link href='/saved'>Saved Recipes</Nav.Link>
-<<<<<<< HEAD
                 <Nav.Link href='/search'>Search Recipes</Nav.Link>
-                <Button href='/login' variant='outline-light'>Login</Button>
-=======
+                <Button  href='/login2' variant='outline-light'>Login</Button>
                 <Button href='/login' variant='outline-light'>Sign-Up</Button>
->>>>>>> dev
             </Nav>
     
         </Navbar>

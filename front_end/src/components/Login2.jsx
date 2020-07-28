@@ -56,14 +56,15 @@ export default class Login2 extends React.Component {
     }
     return (
       <>
-      <Form.Group onSubmit={(evt) => this.handleSubmit(evt)}>
-        <Form.Label htmlFor="userName">Username: </Form.Label>
+      <Form.Group className="mx-auto" style={{width: '40em'}}
+      onSubmit={(evt) => this.handleSubmit(evt)}>
+        <Form.Label className="h4" htmlFor="userName">Username: </Form.Label>
         <Form.Control type="text" id="userName"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.userName} />
         <br />
 
-        <Form.Label htmlFor="password">Password: </Form.Label>
+        <Form.Label className='h4' htmlFor="password">Password: </Form.Label>
         <Form.Control type="password" id="password"
           onChange={(evt) => this.handleChange(evt)}
           value={this.state.password} />
