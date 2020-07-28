@@ -12,7 +12,7 @@ import Recipes from './components/Recipes.jsx'
 import Login from './components/Login'
 import RecipeInfo from './components/RecipeInfo'
 import Show from './components/Show'
-
+import Login2 from './components/Login2'
 
 let baseURL = 'http://localhost:3003'
 
@@ -72,6 +72,11 @@ class App extends React.Component {
             exact path='/login'
             render={(props) => (
               <Login {...props} setUser={this.setUser} />
+            )} />
+            <Route
+            exact path='/login2'
+            render={(props) => (
+              <Login2 {...props} setUser={this.setUser} />
             )} />
           <Route exact path='/show' component={Show} />
           <Route component={Error} />
