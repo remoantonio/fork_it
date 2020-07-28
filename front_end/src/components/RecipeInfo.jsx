@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Card, Button, Container} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Show from './Show.jsx'
 
 
 
@@ -16,7 +17,7 @@ class RecipeInfo extends Component {
       //     </Col>
       //   ))}
       // </Row>
-        
+       < div className="mx-auto">
         <Card style={{ width: '18rem' }} className="h-100 shadow-sm bg-white rounded">
           <Card.Img variant="top" src={this.props.recipe.image} />
           <Card.Body className="d-flex flex-column ">
@@ -27,16 +28,18 @@ class RecipeInfo extends Component {
             <Card.Text className="text-secondary">Calories :{Math.floor(this.props.recipe.calories)}</Card.Text>
             <Button
               href='/show'
-
               className="mt-auto font-weight-bold"
               variant="warning"
               block
+              render={(props) => (
+                <Show {...props} recipe={this.props.recipe} />
+              )} 
             >
               Show More
           </Button>
           </Card.Body>
         </Card>
-       
+       </div>
       )
     }
   }

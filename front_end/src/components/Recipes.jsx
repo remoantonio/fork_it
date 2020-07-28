@@ -67,10 +67,10 @@ class Recipes extends Component {
 
         
           {this.state.recipe ? (
-          <Row>
+          <Row >
             {this.state.recipe.map((recipe, index) => {
           return (
-           <Col xs={3} className="mb-5">
+           <Col md='auto' className="mb-5">
             <RecipeInfo recipe={recipe.recipe} id={index} />
             </Col>
           )})} 
